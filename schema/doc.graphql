@@ -1,0 +1,24 @@
+
+type EulaOutput {
+    version: Int!
+    publicUrl: String!
+    status: EulaStatus!
+}
+
+type PreSignedUrlOutput {
+    url: String!
+    filePath: String!
+}
+
+  initiateEulaUpload(version: Int!, content: String!): PreSignedUrlOutput!
+
+    """
+    Marks the EULA upload as completed.
+    """
+    completeEulaUpload(version: Int!): EulaOutput!
+
+    """
+    Sets the availability status of the EULA.
+    """
+    setEulaAvailability(version: Int!, available: Boolean!): EulaOutput!
+}
